@@ -51,16 +51,14 @@ export default function Modal({
 
 	const handleSecondaryAction = useCallback(() => {
 		if (disabled || !secondaryAction) return
-
-		if (!isOpen) return null
 	}, [disabled, secondaryAction])
+
+	if (!isOpen) return null
 
 	return (
 		<>
 			<div
-				className={`fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none ${
-					showModal && 'bg-neutral-800/70'
-				}`}
+				className={`fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none bg-neutral-800/70`}
 			>
 				<div className='relative w-full h-full mx-auto my-6 md:w-4/6 lg:w-3/6 xl:w-2/5 lg:h-auto md:h-auto'>
 					{/* CONTENT */}
