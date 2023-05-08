@@ -6,6 +6,9 @@ import { FcGoogle } from 'react-icons/fc'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import useRegisterModal from '~/app/hooks/useRegisterModal'
 import Modal from './index'
+import Heading from '../Heading'
+import Inputs from '../Inputs'
+import { toast } from 'react-hot-toast'
 
 export default function RegisterModal() {
 	const registerModal = useRegisterModal()
@@ -30,12 +33,43 @@ export default function RegisterModal() {
 				registerModal.onClose()
 			})
 			.catch((error) => {
-				console.log(error)
+				toast.error('Something Went Wrong')
 			})
 			.finally(() => {
 				setIsLoading(false)
 			})
 	}
+
+	const bodyContent = (
+		<div className='flex flex-col gap-4'>
+			<Heading title='Welcome to Airbnb' subtitle='Create an account!' />
+			<Inputs
+				id='email'
+				label='Email'
+				disabled={isLoading}
+				register={register}
+				errors={errors}
+				required
+			/>
+			<Inputs
+				id='name'
+				label='Name'
+				disabled={isLoading}
+				register={register}
+				errors={errors}
+				required
+			/>
+			<Inputs
+				id='password'
+				type='password'
+				label='password'
+				disabled={isLoading}
+				register={register}
+				errors={errors}
+				required
+			/>
+		</div>
+	)
 
 	return (
 		<Modal
@@ -45,6 +79,7 @@ export default function RegisterModal() {
 			actionLabel='Continue'
 			onClose={registerModal.onClose}
 			onSubmit={handleSubmit(onSubmit)}
+			body={bodyContent}
 		/>
 	)
 }
