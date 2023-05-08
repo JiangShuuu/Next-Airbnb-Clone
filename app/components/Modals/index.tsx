@@ -101,6 +101,7 @@ export default function Modal({
 										disabled={disabled}
 									/>
 								</div>
+								{footer}
 							</div>
 						</div>
 					</div>
