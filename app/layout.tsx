@@ -2,7 +2,8 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 
 import Navbar from './components/Navbars'
-import Modals from './components/Modal'
+import RegisterModal from './components/Modals/RegisterModal'
+import LoginModal from './components/Modals/LoginModal'
 import ClientOnly from './components/ClientOnly'
 import ToasterProvider from './providers/ToasterProvider'
 
@@ -22,7 +23,8 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={inter.className}>
 				<ToasterProvider />
-				<Modals />
+				<LoginModal />
+				<RegisterModal />
 				<Navbar />
 				{children}
 			</body>
