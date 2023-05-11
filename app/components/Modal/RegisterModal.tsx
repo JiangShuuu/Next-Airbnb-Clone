@@ -16,7 +16,7 @@ interface ModalProps {
 	secondaryActionLabel?: string
 }
 
-export default function Modal({
+export default function RegisterModal({
 	isOpen,
 	onClose,
 	onSubmit,

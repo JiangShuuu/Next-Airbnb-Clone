@@ -2,8 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 
 import Navbar from './components/Navbars'
-import Modals from './components/Modals'
-import RegisterModal from './components/Modals/RegisterModal'
+import Modals from './components/Modal'
 import ClientOnly from './components/ClientOnly'
 import ToasterProvider from './providers/ToasterProvider'
 
@@ -23,7 +22,7 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={inter.className}>
 				<ToasterProvider />
-				<RegisterModal />
+				<Modals />
 				<Navbar />
 				{children}
 			</body>

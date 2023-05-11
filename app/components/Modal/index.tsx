@@ -5,13 +5,13 @@ import { AiFillGithub } from 'react-icons/ai'
 import { FcGoogle } from 'react-icons/fc'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import useRegisterModal from '~/app/hooks/useRegisterModal'
-import Modal from './index'
+import RegisterModal from './RegisterModal'
 import Heading from '../Heading'
 import Inputs from '../Inputs'
 import { toast } from 'react-hot-toast'
 import Button from '../Button'
 
-export default function RegisterModal() {
+export default function Modal() {
 	const registerModal = useRegisterModal()
 	const [isLoading, setIsLoading] = useState(false)
 	const {
@@ -102,7 +102,7 @@ export default function RegisterModal() {
 	)
 
 	return (
-		<Modal
+		<RegisterModal
 			disabled={isLoading}
 			isOpen={registerModal.isOpen}
 			title='Register'
