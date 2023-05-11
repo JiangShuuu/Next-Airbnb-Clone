@@ -25,10 +25,12 @@ export default async function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={inter.className}>
-				<ToasterProvider />
-				<LoginModal />
-				<RegisterModal />
-				<Navbar currentUser={currentUser} />
+				<ClientOnly>
+					<ToasterProvider />
+					<LoginModal />
+					<RegisterModal />
+					<Navbar currentUser={currentUser} />
+				</ClientOnly>
 				{children}
 			</body>
 		</html>
