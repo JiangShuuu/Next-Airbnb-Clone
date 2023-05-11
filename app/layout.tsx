@@ -6,6 +6,7 @@ import RegisterModal from './components/Modals/RegisterModal'
 import LoginModal from './components/Modals/LoginModal'
 import ClientOnly from './components/ClientOnly'
 import ToasterProvider from './providers/ToasterProvider'
+import getCurrentUser from './actions/getCurrentUser'
 
 export const metadata = {
 	title: 'Airbnb',
@@ -14,18 +15,20 @@ export const metadata = {
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode
 }) {
+	const currentUser = await getCurrentUser()
+
 	return (
 		<html lang='en'>
 			<body className={inter.className}>
 				<ToasterProvider />
 				<LoginModal />
 				<RegisterModal />
-				<Navbar />
+				<Navbar currentUser={currentUser} />
 				{children}
 			</body>
 		</html>

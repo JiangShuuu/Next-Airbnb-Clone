@@ -6,7 +6,7 @@ import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcrypt'
 
-export const authOption: AuthOptions = {
+export const authOptions: AuthOptions = {
 	adapter: PrismaAdapter(prisma),
 	providers: [
 		GithubProvider({
@@ -61,4 +61,4 @@ export const authOption: AuthOptions = {
 	secret: process.env.NEXTAUTH_SECRET,
 }
 
-export default NextAuth(authOption)
+export default NextAuth(authOptions)
