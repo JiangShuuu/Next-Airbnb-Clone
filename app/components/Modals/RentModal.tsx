@@ -5,6 +5,8 @@ import Modal from './Modal'
 import useRentModal from '~/app/hooks/useRentModal'
 import Heading from '../Heading'
 import { categories } from '../Navbars/Categories'
+import CategoryInput from '../Inputs/CategoryInput'
+import { FieldValues, useForm } from 'react-hook-form'
 
 enum STEPS {
 	CATEGORY = 0,
@@ -20,12 +22,43 @@ export default function RentModal() {
 
 	const [step, setStep] = useState(STEPS.CATEGORY)
 
+	const {
+		register,
+		handleSubmit,
+		setValue,
+		watch,
+		formState: { errors },
+		reset,
+	} = useForm<FieldValues>({
+		defaultValues: {
+			category: '',
+			location: null,
+			guestCount: 1,
+			roomCount: 1,
+			bathroomCount: 1,
+			imageSrc: '',
+			price: 1,
+			title: '',
+			description: '',
+		},
+	})
+
 	const onBack = () => {
 		setStep((value) => value - 1)
 	}
 
 	const onNext = () => {
 		setStep((value) => value + 1)
+	}
+
+	const category = watch('category')
+
+	const setCustomValue = (id: string, value: any) => {
+		setValue(id, value, {
+			shouldValidate: true,
+			shouldDirty: true,
+			shouldTouch: true,
+		})
 	}
 
 	const actionLabel = useMemo(() => {
@@ -49,10 +82,14 @@ export default function RentModal() {
 				subtitle='Pick a category'
 			/>
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto'>
-				123
 				{categories.map((item) => (
 					<div key={item.label} className='col-span-1'>
-						{item.label}
+						<CategoryInput
+							onClick={(category) => setCustomValue('category', category)}
+							selected={category === item.label}
+							label={item.label}
+							icon={item.icon}
+						/>
 					</div>
 				))}
 			</div>
