@@ -26,7 +26,7 @@ export default function ImageUpload({ onChange, value }: ImageUploadProps) {
 	return (
 		<CldUploadWidget
 			onUpload={handleUpload}
-			uploadPreset=''
+			uploadPreset='vxjnvku6'
 			options={{
 				maxFiles: 1,
 			}}
