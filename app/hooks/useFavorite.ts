@@ -31,7 +31,7 @@ export default function useFavorite({ listingId, currentUser }: IUseFavorite) {
 				if (hasFavorited) {
 					request = () => axios.delete(`/api/favorites/${listingId}`)
 				} else {
-					request = () => axios.post(`/api/favorite/${listingId}`)
+					request = () => axios.post(`/api/favorites/${listingId}`)
 				}
 
 				await request()
