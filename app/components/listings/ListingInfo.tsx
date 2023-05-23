@@ -5,6 +5,7 @@ import useCountries from '~/app/hooks/useCountry'
 import { SafeUser } from '~/app/types'
 import Avatar from '../Avatar'
 import ListingCategory from './ListingCategory'
+import dynamic from 'next/dynamic'
 
 interface ListingInfoProps {
 	user: SafeUser
@@ -21,6 +22,10 @@ interface ListingInfoProps {
 		| undefined
 	locationValue: string
 }
+
+const Map = dynamic(() => import('../Map'), {
+	ssr: false,
+})
 
 export default function ListingInfo({
 	user,
@@ -54,6 +59,10 @@ export default function ListingInfo({
 					description={category.description}
 				/>
 			)}
+			<hr />
+			<div className='text-lg font-light text-neutral-500'>{description}</div>
+			<hr />
+			<Map center={coordinate} />
 		</div>
 	)
 }
