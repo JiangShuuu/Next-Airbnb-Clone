@@ -4,6 +4,7 @@ import { IconType } from 'react-icons/lib'
 import useCountries from '~/app/hooks/useCountry'
 import { SafeUser } from '~/app/types'
 import Avatar from '../Avatar'
+import ListingCategory from './ListingCategory'
 
 interface ListingInfoProps {
 	user: SafeUser
@@ -39,7 +40,20 @@ export default function ListingInfo({
 					<div>Hosted by {user?.name}</div>
 					<Avatar src={user?.image} />
 				</div>
+				<div className='flex flex-row items-center gap-4 font-light text-neutral-500'>
+					<div>{guestCount} guests</div>
+					<div>{roomCount} rooms</div>
+					<div>{bathroomCount} bathrooms</div>
+				</div>
 			</div>
+			<hr />
+			{category && (
+				<ListingCategory
+					icon={category.icon}
+					label={category.label}
+					description={category.description}
+				/>
+			)}
 		</div>
 	)
 }
