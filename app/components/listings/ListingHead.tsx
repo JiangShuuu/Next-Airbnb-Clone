@@ -4,6 +4,7 @@ import useCountries from '~/app/hooks/useCountry'
 import { SafeUser } from '~/app/types'
 import Heading from '../Heading'
 import Image from 'next/image'
+import HeartButton from '../HeartButton'
 
 interface ListingHeadProps {
 	title: string
@@ -35,7 +36,9 @@ export default function ListingHead({
 					fill
 					className='object-cover w-full'
 				/>
-				<p>123</p>
+				<div className='absolute top-5 right-5'>
+					<HeartButton listingId={id} currentUser={currentUser} />
+				</div>
 			</div>
 		</>
 	)
