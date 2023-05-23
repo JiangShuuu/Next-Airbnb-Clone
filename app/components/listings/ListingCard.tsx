@@ -61,7 +61,7 @@ export default function ListingCard({
 
 	return (
 		<div
-			onClick={() => router.push(`/listing/${data.id}`)}
+			onClick={() => router.push(`/listings/${data.id}`)}
 			className='col-span-1 cursor-pointer group'
 		>
 			<div className='flex flex-col w-full gap-2'>
