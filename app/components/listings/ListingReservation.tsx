@@ -1,5 +1,6 @@
 import React from 'react'
 import { Range } from 'react-date-range'
+import Calendar from '../Inputs/Calendar'
 
 interface ListReservationProps {
 	price: number
@@ -8,7 +9,7 @@ interface ListReservationProps {
 	dateRange: Range
 	onSubmit: number
 	disabled: number
-	disabledDates: number
+	disabledDates: Date[]
 }
 
 export default function ListingReservation({
@@ -20,5 +21,23 @@ export default function ListingReservation({
 	disabled,
 	disabledDates,
 }: ListReservationProps) {
-	return <div>ListingReservation</div>
+	return (
+		<div className='overflow-hidden bg-white border rounded-xl border-neutral-200'>
+			<div className='flex flex-row items-center gap-1 p-4'>
+				<div className='text-2xl font-semibold'>$ {price}</div>
+				<div className='font-light text-neutral-600'>night</div>
+			</div>
+			<hr />
+			<Calendar
+				value={dateRange}
+				disabledDates={disabledDates}
+				onChange={(value) => onChangeDate(value.selection)}
+			/>
+			<hr />
+			<div className='flex flex-row items-center justify-between p-4 text-lg font-semibold'>
+				<div>Total</div>
+				<div>$ {totalPrice}</div>
+			</div>
+		</div>
+	)
 }
