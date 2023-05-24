@@ -12,6 +12,7 @@ import ListingInfo from '~/app/components/listings/ListingInfo'
 import useLoginModal from '~/app/hooks/useLoginModal'
 import { SafeUser, safeListing } from '~/app/types'
 import ListingReservation from '~/app/components/listings/ListingReservation'
+import { Range } from 'react-date-range'
 
 const initialDateRange = {
 	startDate: new Date(),
@@ -51,7 +52,7 @@ export default function ListingClient({
 
 	const [isLoading, setIsLoading] = useState(false)
 	const [totalPrice, setTotalPrice] = useState(listing.price)
-	const [dateRange, setDateRange] = useState(initialDateRange)
+	const [dateRange, setDateRange] = useState<Range>(initialDateRange)
 
 	const onCreateReservation = useCallback(() => {
 		if (!currentUser) {

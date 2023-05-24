@@ -1,14 +1,15 @@
 import React from 'react'
 import { Range } from 'react-date-range'
 import Calendar from '../Inputs/Calendar'
+import Button from '../Button'
 
 interface ListReservationProps {
 	price: number
 	totalPrice: number
 	onChangeDate: (value: Range) => void
 	dateRange: Range
-	onSubmit: number
-	disabled: number
+	onSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void
+	disabled: boolean
 	disabledDates: Date[]
 }
 
@@ -34,6 +35,9 @@ export default function ListingReservation({
 				onChange={(value) => onChangeDate(value.selection)}
 			/>
 			<hr />
+			<div className='p-4'>
+				<Button disabled={disabled} label='Reserve' onClick={onSubmit} />
+			</div>
 			<div className='flex flex-row items-center justify-between p-4 text-lg font-semibold'>
 				<div>Total</div>
 				<div>$ {totalPrice}</div>
