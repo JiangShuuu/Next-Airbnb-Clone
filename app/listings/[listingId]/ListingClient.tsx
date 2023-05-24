@@ -10,7 +10,7 @@ import { categories } from '~/app/components/Navbars/Categories'
 import ListingHead from '~/app/components/listings/ListingHead'
 import ListingInfo from '~/app/components/listings/ListingInfo'
 import useLoginModal from '~/app/hooks/useLoginModal'
-import { SafeUser, safeListing } from '~/app/types'
+import { SafeUser, SafeListing, SafeReservation } from '~/app/types'
 import ListingReservation from '~/app/components/listings/ListingReservation'
 import { Range } from 'react-date-range'
 
@@ -21,8 +21,8 @@ const initialDateRange = {
 }
 
 interface ListingClientProps {
-	reservations?: Reservation[]
-	listing: safeListing & {
+	reservations?: SafeReservation[]
+	listing: SafeListing & {
 		user: SafeUser
 	}
 	currentUser?: SafeUser | null
