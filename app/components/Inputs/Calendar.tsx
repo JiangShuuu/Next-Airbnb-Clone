@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import { DateRange, RangeKeyDict, Range } from 'react-date-range'
 import 'react-date-range/dist/styles.css'
