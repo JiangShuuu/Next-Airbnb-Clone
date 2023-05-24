@@ -11,6 +11,7 @@ import ListingHead from '~/app/components/listings/ListingHead'
 import ListingInfo from '~/app/components/listings/ListingInfo'
 import useLoginModal from '~/app/hooks/useLoginModal'
 import { SafeUser, safeListing } from '~/app/types'
+import ListingReservation from '~/app/components/listings/ListingReservation'
 
 const initialDateRange = {
 	startDate: new Date(),
@@ -117,6 +118,17 @@ export default function ListingClient({
 							bathroomCount={listing.bathroomCount}
 							locationValue={listing.locationValue}
 						/>
+						<div className='order-first mb-10 md:order-last md:col-span-3'>
+							<ListingReservation
+								price={listing.price}
+								totalPrice={totalPrice}
+								onChangeDate={(value) => setDateRange(value)}
+								dateRange={dateRange}
+								onSubmit={onCreateReservation}
+								disabled={isLoading}
+								disabledDates={disabledDates}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
