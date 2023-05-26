@@ -25,7 +25,7 @@ export default async function TropsPage() {
 			<ClientOnly>
 				<EmptyState
 					title='No trips found'
-					subtitle='Looks like you havent reserved any trips.'
+					subtitle='Looks like you havent reserved any trip.'
 				/>
 			</ClientOnly>
 		)
