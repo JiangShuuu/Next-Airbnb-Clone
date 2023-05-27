@@ -5,7 +5,7 @@ import getCurrentUser from '../actions/getCurrentUser'
 import getResercations from '../actions/getReservation'
 import TripClient from './TripClient'
 
-export default async function TropsPage() {
+export default async function TripsPage() {
 	const currentUser = await getCurrentUser()
 
 	if (!currentUser) {
