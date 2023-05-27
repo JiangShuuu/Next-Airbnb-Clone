@@ -70,7 +70,7 @@ export default function ListingClient({
 				toast.success('Losting reserved!')
 				setDateRange(initialDateRange)
 				// Redirect to /trips
-				router.refresh()
+				router.push('/trips')
 			})
 			.catch(() => {
 				toast.error('Something went wrong.')
