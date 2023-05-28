@@ -12,14 +12,14 @@ interface IParams {
 
 export default async function ListingPage({ params }: { params: IParams }) {
 	const listing = await getListingById(params)
-	const resercations = await getReservation(params)
+	const reservations = await getReservation(params)
 	const currentUser = await getCurrentUser()
 
 	if (listing) {
 		return (
 			<ClientOnly>
 				<ListingClient
-					resercations={resercations}
+					reservations={reservations}
 					listing={listing}
 					currentUser={currentUser}
 				/>
