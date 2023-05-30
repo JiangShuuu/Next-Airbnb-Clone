@@ -119,7 +119,7 @@ export default function SearchModal() {
 		<div className='flex flex-col gap-8'>
 			<Heading
 				title='Where do you wanna go?'
-				subtitle='Find the perfect location!'
+				subtitle='Find the perfect location!!'
 			/>
 
 			<CountrySelect
