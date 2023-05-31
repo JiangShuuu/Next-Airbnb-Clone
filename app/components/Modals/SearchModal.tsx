@@ -10,6 +10,7 @@ import CountrySelect, { CountrySelectValue } from '../Inputs/CountrySelect'
 import { formatISO } from 'date-fns'
 import Heading from '../Heading'
 import Calendar from '../Inputs/Calendar'
+import Counter from '../Inputs/Counter'
 enum STEPS {
 	LOCATION = 0,
 	DATE = 1,
@@ -147,6 +148,33 @@ export default function SearchModal() {
 			</div>
 		)
 	}
+
+	if (step === STEPS.INFO) {
+		bodyContent = (
+			<div className='flex flex-col gap-8'>
+				<Heading title='More information' subtitle='Find your perfect place!' />
+				<Counter
+					title='Guests'
+					subtitle='How many guests are coming?'
+					value={guestCount}
+					onChange={(value) => setGuestCount(value)}
+				/>
+				<Counter
+					title='Rooms'
+					subtitle='How many rooms are coming?'
+					value={roomCount}
+					onChange={(value) => setRoomCount(value)}
+				/>
+				<Counter
+					title='Bathrooms'
+					subtitle='How many bathrooms are coming?'
+					value={bathroomCount}
+					onChange={(value) => setBathroomCount(value)}
+				/>
+			</div>
+		)
+	}
+
 	return (
 		<Modal
 			isOpen={searchModal.isOpen}
