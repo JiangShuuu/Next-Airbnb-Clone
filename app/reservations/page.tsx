@@ -25,7 +25,7 @@ export default async function page() {
 			<ClientOnly>
 				<EmptyState
 					title='No reservations found'
-					subtitle='Looks like you have no resercations on your properties'
+					subtitle='Looks like you have no resercations on your propertie'
 				/>
 			</ClientOnly>
 		)
